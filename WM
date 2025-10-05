@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Work | Working Mathematically</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="navbar">
+    <img src="logo.svg" alt="Working Mathematically Logo" class="logo">
+    <h1>Working Mathematically</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="notes.html">Notes</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="submit.html" class="active">Submit Work</a>
+      <a href="login.html" class="login-btn">Login</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" style="max-width:500px;margin:0 auto;">
+      <h2>Submit Your Assignment</h2>
+      <form class="submit-form" onsubmit="event.preventDefault(); alert('Submission simulated!');" style="display:flex;flex-direction:column;gap:16px;">
+        <label for="student">Your Name</label>
+        <input type="text" id="student" name="student" required>
+        
+        <label for="assignment">Assignment</label>
+        <select id="assignment" name="assignment" required>
+          <option value="">Select assignment</option>
+          <option value="linear-algebra">Linear Algebra</option>
+          <option value="calculus-applications">Calculus Applications</option>
+          <option value="probability-statistics">Probability & Statistics</option>
+        </select>
+        
+        <label for="file">Upload File (PDF/DOCX)</label>
+        <input type="file" id="file" name="file" accept=".pdf,.doc,.docx" required>
+        
+        <button class="btn" type="submit">Submit</button>
+      </form>
+      <p style="margin-top:18px;color:#e94560;">(Demo only: No actual file upload. Submission is simulated!)</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Working Mathematically. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignments | Working Mathematically</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="navbar">
+    <img src="logo.svg" alt="Working Mathematically Logo" class="logo">
+    <h1>Working Mathematically</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="assignments.html" class="active">Assignments</a>
+      <a href="notes.html">Notes</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="submit.html">Submit Work</a>
+      <a href="login.html" class="login-btn">Login</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" style="max-width: 700px; margin: 0 auto;">
+      <h2>Assignments</h2>
+      <p>Download current assignments and keep track of due dates.</p>
+      <ul style="list-style:none;padding:0;">
+        <li style="margin:18px 0;">
+          <div style="background:var(--bg-light);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);">
+            <h3 style="color:var(--primary);margin-bottom:8px;">Assignment 1: Linear Algebra</h3>
+            <p>Due: Oct 15, 2025</p>
+            <a href="assignments/linear-algebra.pdf" class="btn" download>Download PDF</a>
+          </div>
+        </li>
+        <li style="margin:18px 0;">
+          <div style="background:var(--bg-light);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);">
+            <h3 style="color:var(--primary);margin-bottom:8px;">Assignment 2: Calculus Applications</h3>
+            <p>Due: Oct 29, 2025</p>
+            <a href="assignments/calculus-applications.pdf" class="btn" download>Download PDF</a>
+          </div>
+        </li>
+        <li style="margin:18px 0;">
+          <div style="background:var(--bg-light);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);">
+            <h3 style="color:var(--primary);margin-bottom:8px;">Assignment 3: Probability & Statistics</h3>
+            <p>Due: Nov 12, 2025</p>
+            <a href="assignments/probability-statistics.pdf" class="btn" download>Download PDF</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Working Mathematically. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar | Working Mathematically</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <style>
+    /* Inline extra calendar styles for demo */
+    .calendar-container {
+      max-width: 450px;
+      margin: 40px auto;
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--primary);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .calendar-day {
+      padding: 10px 0;
+      background: var(--bg-dark);
+      color: var(--accent);
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .calendar-day.today {
+      background: var(--primary);
+      color: var(--bg-dark);
+      font-weight: bold;
+    }
+    .calendar-day.event {
+      border: 2px solid var(--secondary);
+      box-shadow: 0 2px 8px #e94560aa;
+    }
+    .calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      color: var(--secondary);
+      font-weight: bold;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+    .event-list {
+      margin-top: 18px;
+      background: var(--bg-dark);
+      color: var(--accent);
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: var(--shadow);
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <img src="logo.svg" alt="Working Mathematically Logo" class="logo">
+    <h1>Working Mathematically</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="notes.html">Notes</a>
+      <a href="calendar.html" class="active">Calendar</a>
+      <a href="submit.html">Submit Work</a>
+      <a href="login.html" class="login-btn">Login</a>
+    </nav>
+  </header>
+  <main>
+    <section class="calendar-container">
+      <div class="calendar-header">
+        <button id="prevMonth" class="btn" style="font-size:0.9rem;padding:5px 12px;">&#8592;</button>
+        <span id="monthYear"></span>
+        <button id="nextMonth" class="btn" style="font-size:0.9rem;padding:5px 12px;">&#8594;</button>
+      </div>
+      <div class="calendar-weekdays">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+      <div id="calendarGrid" class="calendar-grid"></div>
+      <div id="eventList" class="event-list" style="display:none;"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Working Mathematically. All rights reserved.</p>
+  </footer>
+  <script>
+    // Demo calendar JS with events
+    const events = {
+      "2025-10-15": ["Assignment 1 Due: Linear Algebra"],
+      "2025-10-29": ["Assignment 2 Due: Calculus Applications"],
+      "2025-11-12": ["Assignment 3 Due: Probability & Statistics"],
+      "2025-10-08": ["Lecture: Mathematical Thinking"],
+      "2025-10-22": ["Lecture: Problem Solving Strategies"],
+      "2025-11-05": ["Lecture: Logical Reasoning"]
+    };
+
+    let currentDate = new Date();
+
+    function renderCalendar(year, month) {
+      const calendarGrid = document.getElementById("calendarGrid");
+      const monthYear = document.getElementById("monthYear");
+      const eventList = document.getElementById("eventList");
+      calendarGrid.innerHTML = "";
+      eventList.style.display = "none";
+      const firstDay = new Date(year, month, 1).getDay();
+      const lastDate = new Date(year, month + 1, 0).getDate();
+      const today = new Date();
+      monthYear.textContent = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
+
+      // Fill blank days before 1st
+      for (let i = 0; i < firstDay; i++) {
+        const blank = document.createElement("div");
+        calendarGrid.appendChild(blank);
+      }
+      for (let day = 1; day <= lastDate; day++) {
+        const dateObj = new Date(year, month, day);
+        const iso = dateObj.toISOString().slice(0, 10);
+        const div = document.createElement("div");
+        div.className = "calendar-day";
+        if (iso === today.toISOString().slice(0,10)) div.classList.add("today");
+        if (events[iso]) div.classList.add("event");
+        div.textContent = day;
+        div.setAttribute('data-date', iso);
+        div.onclick = function() {
+          showEvents(iso);
+        };
+        calendarGrid.appendChild(div);
+      }
+    }
+
+    function showEvents(date) {
+      const eventList = document.getElementById("eventList");
+      if (events[date]) {
+        eventList.innerHTML = `<strong>Events for ${date}:</strong><ul>` +
+          events[date].map(ev => `<li>${ev}</li>`).join('') + `</ul>`;
+        eventList.style.display = "block";
+      } else {
+        eventList.innerHTML = `<strong>No events for ${date}.</strong>`;
+        eventList.style.display = "block";
+      }
+    }
+
+    document.getElementById("prevMonth").onclick = function() {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    };
+    document.getElementById("nextMonth").onclick = function() {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    };
+
+    // Initial Render
+    renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Working Mathematically</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="navbar">
+    <img src="logo.svg" alt="Working Mathematically Logo" class="logo">
+    <h1>Working Mathematically</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="notes.html">Notes</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="submit.html">Submit Work</a>
+      <a href="login.html" class="login-btn">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Welcome to Working Mathematically</h2>
+      <p>Your portal for assignments, notes, submissions, and more. Designed for modern university learning.</p>
+      <div class="quick-links">
+        <a href="assignments.html" class="btn">View Assignments</a>
+        <a href="notes.html" class="btn">Browse Notes</a>
+        <a href="submit.html" class="btn">Submit Work</a>
+      </div>
+    </section>
+    <section class="features">
+      <div>
+        <h3>Assignments</h3>
+        <p>Download and stay up-to-date with your coursework.</p>
+      </div>
+      <div>
+        <h3>Notes</h3>
+        <p>Access lecture notes and additional resources.</p>
+      </div>
+      <div>
+        <h3>Submissions</h3>
+        <p>Submit your assignments easily and securely.</p>
+      </div>
+      <div>
+        <h3>Calendar</h3>
+        <p>Track deadlines and important dates.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Working Mathematically. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Working Mathematically</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="navbar">
+    <img src="logo.svg" alt="Working Mathematically Logo" class="logo">
+    <h1>Working Mathematically</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="notes.html">Notes</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="submit.html">Submit Work</a>
+      <a href="login.html" class="login-btn active">Login</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" style="max-width: 400px; margin: 60px auto;">
+      <h2>Login</h2>
+      <form class="login-form" autocomplete="off" onsubmit="event.preventDefault(); alert('Login is simulated!');">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required autofocus>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <button class="btn" type="submit">Login</button>
+      </form>
+      <p style="margin-top:18px;color:#e94560;">(Login is for demonstration only. No actual authentication.)</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Working Mathematically. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="24" fill="#1a1a2e"/>
+  <circle cx="60" cy="60" r="38" stroke="#00fff7" stroke-width="4" fill="#0f3460"/>
+  <path d="M60 32L71 60H49Z" fill="#00fff7" opacity="0.8"/>
+  <text x="60" y="75" text-anchor="middle" font-size="18" font-weight="bold" fill="#e94560" font-family="Arial">WM</text>
+</svg>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notes | Working Mathematically</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="navbar">
+    <img src="logo.svg" alt="Working Mathematically Logo" class="logo">
+    <h1>Working Mathematically</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="notes.html" class="active">Notes</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="submit.html">Submit Work</a>
+      <a href="login.html" class="login-btn">Login</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" style="max-width:700px; margin:0 auto;">
+      <h2>Course Notes & Resources</h2>
+      <p>Download lecture notes and extra resources for Working Mathematically.</p>
+      <ul style="list-style:none;padding:0;">
+        <li style="margin:18px 0;">
+          <div style="background:var(--bg-light);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);">
+            <h3 style="color:var(--primary);margin-bottom:8px;">Week 1: Mathematical Thinking</h3>
+            <a href="notes/week1-mathematical-thinking.pdf" class="btn" download>Download PDF</a>
+          </div>
+        </li>
+        <li style="margin:18px 0;">
+          <div style="background:var(--bg-light);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);">
+            <h3 style="color:var(--primary);margin-bottom:8px;">Week 2: Problem Solving Strategies</h3>
+            <a href="notes/week2-problem-solving.pdf" class="btn" download>Download PDF</a>
+          </div>
+        </li>
+        <li style="margin:18px 0;">
+          <div style="background:var(--bg-light);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);">
+            <h3 style="color:var(--primary);margin-bottom:8px;">Week 3: Logical Reasoning</h3>
+            <a href="notes/week3-logical-reasoning.pdf" class="btn" download>Download PDF</a>
+          </div>
+        </li>
+        <li style="margin:18px 0;">
+          <div style="background:var(--bg-light);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);">
+            <h3 style="color:var(--primary);margin-bottom:8px;">Extra: Reference Formula Sheet</h3>
+            <a href="notes/formula-sheet.pdf" class="btn" download>Download PDF</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Working Mathematically. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
+/* Modern & Futuristic Theme for Working Mathematically */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@500&display=swap');
+
+:root {
+  --primary: #00fff7;
+  --secondary: #e94560;
+  --bg-dark: #1a1a2e;
+  --bg-light: #0f3460;
+  --text-light: #fff;
+  --accent: #f4f4f4;
+  --radius: 16px;
+  --shadow: 0 4px 24px rgba(0,255,247,0.08);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  min-height: 100vh;
+}
+
+header.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+  background: var(--bg-light);
+  box-shadow: var(--shadow);
+  border-bottom: 2px solid var(--primary);
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  margin-right: 18px;
+}
+
+header.navbar h1 {
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--primary);
+  margin: 0 24px 0 0;
+}
+
+nav a {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--accent);
+  text-decoration: none;
+  margin: 0 16px;
+  font-weight: 700;
+  transition: color 0.2s;
+  position: relative;
+}
+
+nav a:hover, nav a.login-btn {
+  color: var(--primary);
+}
+
+nav a.login-btn {
+  padding: 6px 18px;
+  background: var(--secondary);
+  border-radius: var(--radius);
+  color: var(--text-light);
+  font-weight: bold;
+}
+
+main {
+  padding: 36px 20px;
+}
+
+section.hero {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--bg-dark) 100%);
+  padding: 34px 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+section.hero h2 {
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  color: var(--text-light);
+}
+
+section.hero p {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.quick-links {
+  margin-top: 24px;
+}
+
+.btn {
+  background: var(--secondary);
+  color: var(--text-light);
+  padding: 12px 28px;
+  margin: 0 10px;
+  border-radius: var(--radius);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: var(--shadow);
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background: var(--primary);
+  color: var(--bg-dark);
+}
+
+section.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  margin-top: 24px;
+}
+
+section.features div {
+  background: var(--bg-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 16px;
+  text-align: center;
+}
+
+section.features h3 {
+  color: var(--primary);
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+}
+
+footer {
+  margin-top: 60px;
+  background: var(--bg-light);
+  color: var(--accent);
+  text-align: center;
+  padding: 18px 0;
+  border-top: 2px solid var(--primary);
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  header.navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 10px;
+  }
+  header.navbar h1 {
+    margin-bottom: 12px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 18px 6px;
+  }
+  section.hero {
+    padding: 24px 8px;
+  }
+  section.features {
+    grid-template-columns: 1fr;
+  }
+}
